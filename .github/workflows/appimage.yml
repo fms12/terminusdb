@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install swipl
-        run: ./.github/install-swi-prolog.sh main
+        run: ./.github/install-swi-prolog.sh stable
       - run: |
           cd distribution/appimage
           ./build_script.sh
