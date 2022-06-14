@@ -35,4 +35,4 @@ if [[ -z "${TERMINUSDB_SYSTEM_SSL_CERTS}" ]]; then
     set_cert_paths
 fi
 
-$SOURCE/usr/share/terminusdb/terminusdb "$@"
+$SOURCE/usr/bin/swipl -g halt -O $SOURCE/usr/share/terminusdb/src/start.pl "$@"
