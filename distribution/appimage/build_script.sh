@@ -20,4 +20,4 @@ rm -rf app_dir/usr/lib/swi-prolog/bin/x86_64-linux/swipl-ld
 cd $CURRENT_DIR/app_dir/usr/share/terminusdb && make
 #linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable /lib/swi-prolog/bin/x86_64-linux/swipl --library /lib/swi-prolog --library ~/.local/share/swi-prolog/pack/terminus_store_prolog/rust/target/release/libterminus_store_prolog.so -d terminusdb.desktop -i swipl.png --custom-apprun AppRun --output appimage --verbosity=0
 cd "$CURRENT_DIR"
-./linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable "$SWIPL_DIR"/bin/x86_64-linux/swipl --library "$SWIPL_DIR"/lib/x86_64-linux/libswipl.so.8 --library /lib/x86_64-linux-gnu/libpcre.so.3 -d terminusdb.desktop -i terminusdb.svg --custom-apprun AppRun --output appimage --verbosity=0
+./linuxdeploy-x86_64.AppImage --appdir ./app_dir --executable app_dir/usr/share/terminusdb/terminusdb --library "$SWIPL_DIR"/lib/x86_64-linux/libswipl.so.8 --library /lib/x86_64-linux-gnu/libpcre.so.3 -d terminusdb.desktop -i terminusdb.svg --custom-apprun AppRun --output appimage --verbosity=0
