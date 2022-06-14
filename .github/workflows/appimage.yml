@@ -1,0 +1,25 @@
+
+name: AppImage distribution
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Build AppImage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install swipl
+        run: ./.github/install-swi-prolog.sh main
+      - run: |
+          cd distribution/appimage
+          ./build_script.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: terminusdb-appimage
+          path: distribution/appimage/*.AppImage
