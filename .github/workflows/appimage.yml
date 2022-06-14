@@ -16,9 +16,21 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install swipl
         run: ./.github/install-swi-prolog.sh stable
+
+      - name: Check out tus
+        uses: actions/checkout@v2
+        with:
+          repository: terminusdb/tus
+          path: tus
+          ref: v0.0.5
+
+      - name: Install tus
+        run: swipl -g "pack_install('file://$GITHUB_WORKSPACE/tus', [interactive(false)])"
+
       - run: |
           cd distribution/appimage
           ./build_script.sh
+
       - uses: actions/upload-artifact@v3
         with:
           name: terminusdb-appimage
