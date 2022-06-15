@@ -39,7 +39,7 @@ jobs:
 
       - name: Run integration tests
         run: |
-          export TERMINUSDB_EXEC_PATH=$(ls distribution/appimage/TerminusDB*.AppImage --color=never)
+          export TERMINUSDB_EXEC_PATH=$(ls $(pwd)/distribution/appimage/TerminusDB*.AppImage --color=never)
           ./"$TERMINUSDB_EXEC_PATH" store init && ./"$TERMINUSDB_EXEC_PATH" serve &
           cd tests && ./terminusdb.sh store init --force && npm ci && npm run test
 
