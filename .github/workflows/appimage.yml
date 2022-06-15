@@ -39,7 +39,7 @@ jobs:
       - name: Run integration tests
         run: |
           export TERMINUSDB_EXEC_PATH=$(ls distribution/appimage/TerminusDB*.AppImage --color=never)
-          ./"$TERMINUSDB_EXEC_PATH" serve &
+          ./"$TERMINUSDB_EXEC_PATH" store init && ./"$TERMINUSDB_EXEC_PATH" serve &
           cd tests && npm ci && npm run test
 
       - uses: actions/upload-artifact@v3
