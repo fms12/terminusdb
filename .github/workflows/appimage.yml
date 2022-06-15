@@ -34,11 +34,11 @@ jobs:
       - name: Run unit tests
         run: |
           cd distribution/appimage
-          TERMINUSDB_EXEC=$(ls *.AppImage --color=never); ./"$TERMINUSDB_EXEC" test
+          TERMINUSDB_EXEC=$(ls TerminusDB*.AppImage --color=never); ./"$TERMINUSDB_EXEC" test
 
       - name: Run integration tests
         run: |
-          export TERMINUSDB_EXEC_PATH=$(ls distribution/appimage/*.AppImage --color=never)
+          export TERMINUSDB_EXEC_PATH=$(ls distribution/appimage/TerminusDB*.AppImage --color=never)
           ./"$TERMINUSDB_EXEC_PATH" serve &
           cd tests && npm ci && npm run test
 
