@@ -8,7 +8,7 @@ TERMINUSDB_DIR="${CURRENT_DIR}/app_dir/usr/share/terminusdb"
 function cleanup () {
     # We don't need the Rust directory at all anymore
     # since the library is compiled in the executable
-    rm -rf "$TERMINUSDB_DIR"/src/rust/
+    rm -rf "$TERMINUSDB_DIR"/src/rust/target
 }
 
 # Download linuxdeploy first
