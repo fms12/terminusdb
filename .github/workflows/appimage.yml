@@ -2,8 +2,8 @@
 name: AppImage distribution
 
 on:
-  push:
-  pull_request:
+  schedule:
+    - cron: 0 1 * * *
   workflow_dispatch:
 
 
@@ -40,7 +40,7 @@ jobs:
         run: |
           export TERMINUSDB_EXEC_PATH=$(ls distribution/appimage/TerminusDB*.AppImage --color=never)
           ./"$TERMINUSDB_EXEC_PATH" store init && ./"$TERMINUSDB_EXEC_PATH" serve &
-          cd tests && npm ci && npm run test
+          cd tests && ./terminusdb.sh store init --force && npm ci && npm run test
 
       - uses: actions/upload-artifact@v3
         with:
